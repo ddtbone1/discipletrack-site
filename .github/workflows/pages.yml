@@ -1,0 +1,29 @@
+# Publishes site/ to GitHub Pages (custom domain discipletrack.site).
+# Manual until publication is approved; afterwards add a push trigger:
+#   push:
+#     branches: [main]
+#     paths: ["site/**"]
+name: pages
+on:
+  workflow_dispatch:
+permissions:
+  pages: write
+  id-token: write
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

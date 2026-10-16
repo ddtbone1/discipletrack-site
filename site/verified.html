@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email verification · DiscipleTrack</title>
+<meta name="referrer" content="no-referrer">
+<script>
+  // A return page, not an auth callback. Never display, store or exchange
+  // query/fragment values (including codes and error descriptions).
+  if (location.search || location.hash) {
+    history.replaceState(null, '', location.pathname);
+  }
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <a class="brand" href="index.html">DiscipleTrack</a>
+  <nav aria-label="Main navigation"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="delete-account.html">Delete account</a></nav>
+</header>
+<main id="main" tabindex="-1">
+  <h1>Return to DiscipleTrack</h1>
+  <p class="lead">Go back to the DiscipleTrack app and sign in with your email and password.</p>
+  <div class="card">
+    <p>If you followed a successful confirmation link from your email, choose "Already verified? Sign in" in the app. If your email contains a six-digit code instead, enter it on the app's verification screen.</p>
+    <p>This page cannot check whether your email was verified. If the link expired or sign-in still asks you to verify, request a new email from the app. See <a href="support.html">Support</a> if you need help.</p>
+    <p>For password recovery, use the code in the app's "Forgot password" flow. This page does not reset passwords or sign you in.</p>
+  </div>
+</main>
+<footer>
+  <p>DiscipleTrack · <a href="support.html">Support</a> · <a href="privacy.html">Privacy notice</a></p>
+</footer>
+</body>
+</html>
