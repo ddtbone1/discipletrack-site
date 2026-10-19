@@ -14,12 +14,12 @@
 </header>
 <main id="main" tabindex="-1">
   <h1>Privacy notice</h1>
-  <p class="muted">Version 1, effective 16 October 2026. Covers the DiscipleTrack mobile app and this website.</p>
-  <p class="note">DiscipleTrack is being prepared for a pilot with one church. It is not open for registration and is not available on the app stores. This notice describes how the app handles information once a church begins using it.</p>
+  <p class="muted">Version 2, effective 19 October 2026. Covers the DiscipleTrack mobile app and this website.</p>
+  <p class="note">DiscipleTrack is in testing with invited testers and with churches set up by the operator. It is not open to the public. Anyone can create an account, but church information is available only to members a church has approved or added.</p>
 
   <h2>1. Who operates DiscipleTrack</h2>
   <p>DiscipleTrack is developed and operated by <strong>Karl Edu Martin Gomez</strong>, an independent developer, at <strong>77 Liberty Road, Aparente St, General Santos City (Dadiangas), 9500 South Cotabato, Philippines</strong>. Contact: <a href="mailto:ddotbone1@gmail.com">ddotbone1@gmail.com</a>.</p>
-  <p>Liberty Church is a church using DiscipleTrack; it does not operate the software. Each participating church decides who it adds, which ministry roles its members hold, and what ministry records its members enter. The operator provides, maintains and hosts the software.</p>
+  <p>A church using DiscipleTrack does not operate the software. Each participating church decides who it adds, which ministry roles its members hold, and what ministry records its members enter. The operator provides, maintains and hosts the software.</p>
 
   <h2>2. Information the app holds</h2>
   <table>
@@ -32,7 +32,7 @@
       <tr><th scope="row">Scheduled meetings</th><td>The Discipler enters an agreed time and optional note to show the plan and enable reminders on each person's phone. The Disciple does not confirm the schedule in the app.</td></tr>
       <tr><th scope="row">Workbook answers</th><td>You write drafts on your device. Explicit sharing saves an answer snapshot and its sharing record on the server for discussion with your assigned Discipler. Blanks are checked against the book; answers do not determine lesson completion.</td></tr>
       <tr><th scope="row">Follow-ups and care notes</th><td>Consecutive recorded absences can create a care case. Responsible ministry members record actions, notes and resolution.</td></tr>
-      <tr><th scope="row">History and technical records</th><td>The app records actions, who took them and when, for accountability within the church. The service providers (Supabase for the app, Resend for email, GitHub for this website) keep technical logs, such as IP addresses, request times and email delivery events, under their own practices.</td></tr>
+      <tr><th scope="row">History and technical records</th><td>The app records actions, who took them and when, for accountability within the church. The service providers (Supabase for the app, Resend for email, Google Firebase Cloud Messaging for notifications, Vercel for this website) keep technical logs, such as IP addresses, request times and delivery events, under their own practices.</td></tr>
     </tbody>
   </table>
 
@@ -49,16 +49,16 @@
     <li><strong>Platform Super Admin</strong> status alone grants no ministry-data access in the app. It permits setting up churches and access to church-level information, including Coordinator names and emails.</li>
   </ul>
   <p>Database access rules enforce these church and relationship scopes. Administering the backend is separate from in-app roles: Karl Edu Martin Gomez is the only person with administrative access to the production backend, and that access can technically reach stored information. It is used to run, secure and support the service and to handle the requests described in section 8.</p>
-  <p>Service providers process information to run DiscipleTrack: Supabase (authentication and database), GitHub (this website) and the email delivery service described in section 6. DiscipleTrack does not sell personal information or share it for advertising. Information may be disclosed where the law requires it.</p>
+  <p>Service providers process information to run DiscipleTrack: Supabase (authentication and database), Google Firebase Cloud Messaging (notifications to your phone, described in section 5), Vercel (this website) and the email delivery service described in section 6. DiscipleTrack does not sell personal information or share it for advertising. Information may be disclosed where the law requires it.</p>
 
   <h2>5. Storage and device copies</h2>
-  <p>The app stores its data with Supabase. The production database is hosted in Southeast Asia (Singapore), region ap-southeast-1. The current hosting configuration does not include provider-maintained backups that can be restored. If backups are introduced, this notice will be updated to say so.</p>
+  <p>The app stores its data with Supabase. The production database is hosted in Southeast Asia (Singapore), region ap-southeast-1. The hosting provider keeps no restorable backups in the current configuration. The operator keeps encrypted daily backups of the database on a computer the operator controls, for up to 30 days, readable only with a key the operator holds; they are used only to restore the service after a failure. A restore can bring back information deleted after the backup was taken; deletion and correction requests received since then are applied again after any restore.</p>
   <p>Downloaded lessons and a limited copy of profile and group information can be read offline. Sign-out clears those copies on that device. Lesson drafts and reading positions are kept per account across sign-out; completing account deletion in the app clears them on that phone. An offline phone can retain older information until it reconnects or its local data is removed.</p>
-  <p>Reminders are scheduled on the phone after it loads the schedule. They are not remote push notifications.</p>
+  <p>Notifications. When you sign in, the app registers your phone with Google Firebase Cloud Messaging and stores the identifier Firebase gives that installation (a Firebase Installation ID) with your account, so DiscipleTrack can send notifications to your phone: meeting reminders 24 hours and 1 hour before a scheduled meeting, and notices when a meeting is scheduled, moved or cancelled, when a follow-up is assigned to you, when your membership is approved, when you are placed in a group, made a group's Leader or paired, and, for Coordinators, when a request waits for review. Notifications name no member; they may name your group or church. Google processes the identifier and the message to deliver it, and may do so outside the Philippines. Signing out, uninstalling the app or deleting your account stops notifications to that phone; the identifier is deleted 30 days later, and records of sent notifications are deleted 30 days after sending. Your phone may also schedule its own reminders after it loads the schedule. You can turn notifications off in your phone's settings at any time; the app works without them.</p>
 
   <h2>6. Email and this website</h2>
   <p>Account verification and password-reset emails are sent by Supabase Auth through Resend, from noreply@discipletrack.site, and carry a six-digit code. Resend processes your email address and the message in order to deliver it.</p>
-  <p>This website contains no sign-in form, advertising, analytics scripts or tracking cookies. The verification page does not exchange tokens or create an app session. The website is hosted on GitHub Pages, which logs visitors' IP addresses for security purposes.</p>
+  <p>This website contains no sign-in form, advertising, analytics scripts or tracking cookies. The verification page does not exchange tokens or create an app session. The website is hosted on Vercel, which logs visitors' IP addresses and request details for security and operation.</p>
 
   <h2>7. Deletion and retention</h2>
   <p>You can delete your own account in Profile after any held responsibilities have ended. Sign-in credentials are removed, identifying profile fields are cleared and membership is archived. Shared answer text is redacted and scheduled-meeting notes are cleared. See <a href="delete-account.html">account deletion</a> for what is removed and what history remains.</p>
@@ -72,7 +72,7 @@
 
   <h2>9. Members without accounts and minors</h2>
   <p>A church can register someone without an app account and record that the member was informed.</p>
-  <p>DiscipleTrack intends to include minors only with the consent of a parent or guardian and with appropriate safeguards. The app does not currently record age, verify parental or guardian consent, or provide features designed specifically for children. Minors will not be registered until those safeguards are in place, and this notice will be updated before then.</p>
+  <p>DiscipleTrack is for adults (18 or older) for now. Everyone who creates an account confirms that they are 18 or older, and a Coordinator or Leader who registers a member without an account confirms the same about that member; the app does not accept either without it. This is a confirmation, not a verification: the app does not record a birth date or check age. If we learn that a minor was registered, the record is handled under section 8. DiscipleTrack intends to include minors only with the consent of a parent or guardian and with appropriate safeguards, which the app does not have yet; this notice will be updated before then.</p>
 
   <h2>10. Updates to this notice</h2>
   <p>When this notice changes, the updated version will be posted on this page with a new date. The app does not notify users of changes to this notice.</p>
